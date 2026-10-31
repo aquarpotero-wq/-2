@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap');
+:root{--orange:#ff9f43;--deep:#ef6b32;--pink:#ff8fa3;--cream:#fff9ed;--ink:#49342d;--green:#75b879}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(145deg,#fff1d5,#ffe1df 55%,#fff4dc);font-family:'Prompt',sans-serif;color:var(--ink);font-size:18px}
+.topbar{height:76px;background:#fffdf7;display:flex;align-items:center;gap:12px;padding:10px max(18px,calc((100% - 760px)/2));box-shadow:0 3px 14px #8a4b2420;position:sticky;top:0;z-index:5}
+.brand-mark{font-size:36px}.topbar strong{font-size:21px;color:#e86b32;display:block}.topbar small{font-size:13px;color:#97796a}.top-cat{margin-left:auto;font-size:27px}
+.app{width:min(100% - 28px,700px);margin:22px auto 40px;background:#fffdf8;border:3px solid #fff;border-radius:28px;padding:clamp(18px,4vw,34px);box-shadow:0 12px 40px #995b3820;min-height:500px}
+.progress-wrap{margin-bottom:25px}.progress-track{height:11px;background:#f6e6d4;border-radius:30px;overflow:hidden}.progress-track div{height:100%;width:20%;background:linear-gradient(90deg,#ffb347,#ff7c72);border-radius:30px;transition:width .25s}.progress-wrap p{text-align:right;margin:6px 0 0;font-size:14px;color:#9b8170}
+.step{display:none;animation:appear .25s ease}.step.active{display:block}@keyframes appear{from{opacity:.3;transform:translateY(7px)}to{opacity:1;transform:none}}
+.hero-cat{text-align:center;font-size:76px;background:#fff0d5;border:3px dashed #ffc36e;border-radius:50%;width:132px;height:132px;display:grid;place-items:center;margin:8px auto 18px}
+.eyebrow{text-align:center;color:#ed8640;font-weight:700;margin:0 0 5px;font-size:16px}
+h1{text-align:center;font-size:clamp(27px,5vw,36px);line-height:1.3;margin:5px 0 12px;color:#573c2e}
+h2{font-size:23px;margin:0 0 8px}.step>h2{text-align:center;line-height:1.5}.shop-name{color:#ef7438;font-size:34px}
+.intro{text-align:center;line-height:1.7;color:#846e60;margin:0 auto 22px;font-size:17px}
+.field-label{font-weight:700;display:block;margin:18px 0 8px;font-size:18px}
+.big-input{width:100%;padding:17px 16px;border:2px solid #f3cda7;border-radius:15px;font:inherit;font-size:18px;background:#fffefa;color:var(--ink);outline:none}
+.big-input:focus{border-color:#f59b46;box-shadow:0 0 0 3px #ffcf8a55}.textarea{resize:vertical;line-height:1.6}
+button{font-family:inherit;cursor:pointer;border:0;font-size:19px;font-weight:700;border-radius:15px;min-height:58px;padding:12px 20px}
+.primary-btn{background:linear-gradient(110deg,#ffad42,#ff795c);color:white;box-shadow:0 5px 0 #df713d;flex:1}
+.primary-btn:active{transform:translateY(2px);box-shadow:0 3px 0 #df713d}
+#step1 .primary-btn{width:100%;margin-top:24px}
+.menu-card{display:flex;gap:16px;padding:18px;margin:16px 0;border-radius:21px;border:2px solid #f5d8ad;background:#fff9e9}
+.kid-card{background:#fff2f4;border-color:#f6c9d2}.food-emoji{font-size:54px;align-self:flex-start;padding-top:7px}
+.menu-info{flex:1}.menu-info h2{font-size:23px}.price{color:#e76d32;font-size:20px}.menu-info p{line-height:1.55;margin:7px 0 13px;font-size:16px;color:#806b5c}
+.qty-control{display:flex;align-items:center;gap:15px}.qty-control button{width:48px;min-height:48px;padding:0;background:#ffb84f;color:#58391f;font-size:28px;border-radius:13px}.kid-card .qty-control button{background:#ff9eae}.qty-control output{min-width:28px;text-align:center;font-size:24px;font-weight:800}.qty-control span{font-size:16px}
+.hint,.notice{background:#fff4d9;border-radius:13px;padding:13px 15px;color:#856a42;font-size:15px;line-height:1.6;margin:15px 0}
+.notice{background:#eaf6e8;color:#52784d;text-align:center}
+.nav-buttons{display:flex;gap:12px;margin-top:25px}.back-btn{background:#f1e9df;color:#78675a;min-width:115px}
+.choice-list{display:grid;gap:12px;margin-top:18px}.choice{display:flex;align-items:center;gap:14px;min-height:62px;padding:13px 16px;border:2px solid #f1dfca;border-radius:15px;background:#fffdf8;font-size:18px;font-weight:600;cursor:pointer}.choice:has(input:checked){border-color:#f3a24e;background:#fff4df}.choice input{width:25px;height:25px;accent-color:#ef8b37;flex-shrink:0}.choice.special{background:#f1f8ed;border-color:#d6e8d0}
+.summary-card{background:#fff8e9;border:2px solid #f4d6aa;border-radius:18px;padding:18px;margin:22px 0}.summary-card h2{font-size:21px;color:#9a5a2e}.summary-row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed #e7d3b8;font-size:16px}.summary-row span:last-child{text-align:right;font-weight:600}.total-line{display:flex;justify-content:space-between;align-items:center;padding-top:14px;font-size:20px}.total-line strong{font-size:27px;color:#e56d32}.email-note{text-align:center;font-size:14px;color:#927b69;line-height:1.6}.success-icon{text-align:center;font-size:75px;margin:15px 0}
+footer{text-align:center;color:#b18d71;font-size:14px;margin:35px 0 3px}
+@media(max-width:480px){body{font-size:16px}.app{width:calc(100% - 18px);margin:12px auto;padding:17px;border-radius:22px}.menu-card{gap:10px;padding:13px}.food-emoji{font-size:43px}.menu-info h2{font-size:20px}.menu-info p{font-size:15px}.price{font-size:18px}.qty-control{gap:10px}.nav-buttons{gap:8px}.nav-buttons button{font-size:17px;padding:10px 12px}.back-btn{min-width:95px}.choice{font-size:16px}}

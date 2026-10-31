@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffb347">
+  <title>ร้านโจ๊กนายตั้ม | สั่งโจ๊กออนไลน์</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">🐱🥣</div>
+    <div><strong>โจ๊กนายตั้ม</strong><small>อุ่นท้อง อร่อยทุกถุง</small></div>
+    <div class="top-cat" aria-hidden="true">🐾</div>
+  </header>
+
+  <main class="app">
+    <div class="progress-wrap">
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <p id="stepLabel">ขั้นตอนที่ 1 จาก 5</p>
+    </div>
+
+    <section class="step active" id="step1">
+      <div class="hero-cat">😺</div>
+      <p class="eyebrow">ยินดีต้อนรับ</p>
+      <h1>สวัสดีค่ะ!</h1>
+      <h2>ยินดีต้อนรับสู่ร้าน<br><span class="shop-name">โจ๊กนายตั้ม</span></h2>
+      <p class="intro">โจ๊กอุ่น ๆ พร้อมเสิร์ฟแล้วค่ะ<br>เริ่มสั่งอาหารได้ง่าย ๆ ที่ปุ่มด้านล่างเลย</p>
+      <label class="field-label" for="customerName">ชื่อลูกค้า</label>
+      <input id="customerName" class="big-input" type="text" placeholder="กรอกชื่อของคุณ" autocomplete="name">
+      <button class="primary-btn" onclick="goTo(2)">เริ่มสั่งโจ๊ก <span>➜</span></button>
+    </section>
+
+    <section class="step" id="step2">
+      <p class="eyebrow">เมนูของทางร้าน</p>
+      <h1>เลือกจำนวนโจ๊ก</h1>
+      <p class="intro">เลือกจำนวนถุงที่ต้องการได้เลยค่ะ</p>
+      <article class="menu-card adult-card">
+        <div class="food-emoji">🥣</div>
+        <div class="menu-info">
+          <h2>โจ๊กผู้ใหญ่</h2><strong class="price">30 บาท / ถุง</strong>
+          <p>ใส่ขิง ใส่ต้นหอม ใส่หมูเด้ง<br>เพิ่มไข่ได้ (+5 บาท)</p>
+          <div class="qty-control">
+            <button type="button" aria-label="ลดจำนวนโจ๊กผู้ใหญ่" onclick="changeQty('adult',-1)">−</button>
+            <output id="adultQty">0</output>
+            <button type="button" aria-label="เพิ่มจำนวนโจ๊กผู้ใหญ่" onclick="changeQty('adult',1)">+</button>
+            <span>ถุง</span>
+          </div>
+        </div>
+      </article>
+      <article class="menu-card kid-card">
+        <div class="food-emoji">🐻🥣</div>
+        <div class="menu-info">
+          <h2>โจ๊กเด็ก</h2><strong class="price">25 บาท / ถุง</strong>
+          <p>ใส่หมูเด้ง<br>เพิ่มไข่ได้ (+5 บาท)</p>
+          <div class="qty-control">
+            <button type="button" aria-label="ลดจำนวนโจ๊กเด็ก" onclick="changeQty('kid',-1)">−</button>
+            <output id="kidQty">0</output>
+            <button type="button" aria-label="เพิ่มจำนวนโจ๊กเด็ก" onclick="changeQty('kid',1)">+</button>
+            <span>ถุง</span>
+          </div>
+        </div>
+      </article>
+      <div class="hint">💡 ถ้าไม่ต้องการเมนูประเภทใด ให้เลือก “ไม่ได้สั่ง” ในหน้าถัดไปได้ค่ะ</div>
+      <div class="nav-buttons"><button class="back-btn" onclick="goTo(1)">ย้อนกลับ</button><button class="primary-btn" onclick="goTo(3)">ถัดไป ➜</button></div>
+    </section>
+
+    <section class="step" id="step3">
+      <p class="eyebrow">ปรับแต่งเมนู</p>
+      <h1>โจ๊กผู้ใหญ่</h1>
+      <p class="intro">เลือกสิ่งที่ไม่ต้องการใส่ในโจ๊กผู้ใหญ่</p>
+      <div class="notice">เลือกได้หลายข้อ หรือเลือก “ไม่มี” หากรับได้ทุกอย่าง</div>
+      <div class="choice-list" id="adultOptions">
+        <label class="choice"><input type="checkbox" value="ต้นหอม" class="adult-exclude"><span>🌱 ไม่ใส่ต้นหอม</span></label>
+        <label class="choice"><input type="checkbox" value="หมูเด้ง" class="adult-exclude"><span>🐷 ไม่ใส่หมูเด้ง</span></label>
+        <label class="choice"><input type="checkbox" value="ไข่" class="adult-exclude"><span>🥚 ไม่ใส่ไข่</span></label>
+        <label class="choice"><input type="checkbox" value="ขิง" class="adult-exclude"><span>🫚 ไม่ใส่ขิง</span></label>
+        <label class="choice special"><input type="checkbox" id="adultNone"><span>✅ ไม่มี (ใส่ได้ทุกอย่าง)</span></label>
+        <label class="choice special"><input type="checkbox" id="adultNotOrdered"><span>🚫 ไม่ได้สั่งโจ๊กผู้ใหญ่</span></label>
+      </div>
+      <div class="nav-buttons"><button class="back-btn" onclick="goTo(2)">ย้อนกลับ</button><button class="primary-btn" onclick="goTo(4)">ถัดไป ➜</button></div>
+    </section>
+
+    <section class="step" id="step4">
+      <p class="eyebrow">ปรับแต่งเมนู</p>
+      <h1>โจ๊กเด็ก</h1>
+      <p class="intro">เลือกสิ่งที่ไม่ต้องการใส่ในโจ๊กเด็ก</p>
+      <div class="notice">เลือกได้หลายข้อ หรือเลือก “ไม่มี” หากรับได้ทุกอย่าง</div>
+      <div class="choice-list" id="kidOptions">
+        <label class="choice"><input type="checkbox" value="ต้นหอม" class="kid-exclude"><span>🌱 ไม่ใส่ต้นหอม</span></label>
+        <label class="choice"><input type="checkbox" value="หมูเด้ง" class="kid-exclude"><span>🐷 ไม่ใส่หมูเด้ง</span></label>
+        <label class="choice"><input type="checkbox" value="ไข่" class="kid-exclude"><span>🥚 ไม่ใส่ไข่</span></label>
+        <label class="choice"><input type="checkbox" value="ขิง" class="kid-exclude"><span>🫚 ไม่ใส่ขิง</span></label>
+        <label class="choice special"><input type="checkbox" id="kidNone"><span>✅ ไม่มี (ใส่ได้ทุกอย่าง)</span></label>
+        <label class="choice special"><input type="checkbox" id="kidNotOrdered"><span>🚫 ไม่ได้สั่งโจ๊กเด็ก</span></label>
+      </div>
+      <div class="nav-buttons"><button class="back-btn" onclick="goTo(3)">ย้อนกลับ</button><button class="primary-btn" onclick="goTo(5)">ถัดไป ➜</button></div>
+    </section>
+
+    <section class="step" id="step5">
+      <p class="eyebrow">รายละเอียดเพิ่มเติม</p>
+      <h1>มีอะไรแจ้งร้านไหมคะ?</h1>
+      <p class="intro">กรณีสั่งหลายถุงและต้องการแยกส่วนผสมแต่ละถุง สามารถพิมพ์รายละเอียดได้เลยค่ะ</p>
+      <label class="field-label" for="extraDetails">รายละเอียดเพิ่มเติม (ถ้ามี)</label>
+      <textarea id="extraDetails" class="big-input textarea" rows="5" placeholder="ตัวอย่าง: ผู้ใหญ่ 2 ถุง&#10;ถุงที่ 1 ไม่ใส่ขิง&#10;ถุงที่ 2 ไม่ใส่ต้นหอมและไม่ใส่ไข่"></textarea>
+      <div class="hint">หากไม่มีรายละเอียดเพิ่มเติม สามารถเว้นว่างไว้ได้ค่ะ</div>
+      <div class="summary-card">
+        <h2>🧾 สรุปออเดอร์</h2>
+        <div id="orderSummary"></div>
+        <div class="total-line"><span>รวมทั้งหมด</span><strong id="totalPrice">0 บาท</strong></div>
+      </div>
+      <div class="nav-buttons"><button class="back-btn" onclick="goTo(4)">ย้อนกลับ</button><button class="primary-btn" onclick="confirmOrder()">ยืนยันออเดอร์ ✓</button></div>
+      <p class="email-note">เมื่อกดยืนยัน ระบบจะเปิดแอปอีเมลเพื่อส่งรายการสั่งซื้อไปยังร้าน</p>
+    </section>
+
+    <section class="step" id="step6">
+      <div class="success-icon">🎉🐱</div>
+      <h1>เตรียมส่งออเดอร์แล้ว!</h1>
+      <p class="intro">ระบบเปิดอีเมลพร้อมรายละเอียดออเดอร์ให้แล้ว กรุณากด “ส่ง” ในแอปอีเมลอีกครั้งเพื่อส่งถึงร้านค่ะ</p>
+      <div class="summary-card" id="finalSummary"></div>
+      <button class="primary-btn" onclick="location.reload()">กลับหน้าแรก</button>
+    </section>
+    <footer>🐾 ขอบคุณที่อุดหนุนร้านโจ๊กนายตั้ม 🥣</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
